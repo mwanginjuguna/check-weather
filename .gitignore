@@ -1,0 +1,6 @@
+.env
+/data
+/.git
+/views/weather-copy.php
+/.idea
+/.vscode
