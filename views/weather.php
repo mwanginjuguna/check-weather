@@ -1,3 +1,6 @@
+<?php
+//dd($data);
+?>
 <!DOCTYPE html>
 <html lang="en" class="bg-slate-900 text-slate-100">
 <head>
@@ -29,7 +32,9 @@
     <section class="min-h-screen bg-gradient-to-b from-sky-300 to-amber-500">
         <div class="mx-auto w-full max-w-5xl pt-10 lg:pt-20">
             <div class="px-10 lg:px-20 py-8 lg:py-16 grid grid-cols-2 gap-4 lg:gap-8 rounded-lg bg-cover bg-center " style="background-image: url('https://images.pexels.com/photos/1310757/pexels-photo-1310757.jpeg?auto=compress&cs=tinysrgb&w=600')">
-
+            <?php
+            if (!$failed) {
+            ?>
                 <div class="mt-3 col-span-1 py-3 pb-5 lg:p-6 text-white rounded-lg">
                     <p class="pt-1 mt-1 col-span-2 text-3xl lg:text-6xl text-white font-medium">
                         <?php
@@ -71,18 +76,7 @@
                         </span> &#8451;
                     </p>
 
-                    
-                    <div class="mt-4 lg:mt-8">
-                        <form action="/" method="post">
-                            <div>
-                            <input type="text" name="city" placeholder="Enter a City e.g. Berlin" class="w-full py-1 px-2 rounded bg-slate-50 text-slate-800 font-medium text-sm placeholder-slate-900">
-                            </div>
-                            
-                            <button type="submit" class="p-1.5 mt-3 px-2.5 text-center rounded-md bg-amber-500 text-green-950 font-bold">
-                                Load Weather
-                            </button>
-                        </form>
-                    </div>
+                    <?php require basePath('views/search.php'); ?>
 
                 </div>
                 
@@ -145,6 +139,20 @@
                         </span>
                     </p>
                 </div>
+            <?php
+            } else {
+            ?>
+                <div class="mt-3 col-span-1 py-3 rounded-lg">
+                    <h3 class="py-1 font-medium text-lg text-white">
+                        Oops! We could not find information on your city. Try a different city.
+                    </h3>
+                    
+                    <?php require basePath('views/search.php'); ?>
+                </div>
+
+            <?php
+            }
+            ?>
             </div>
         </div>
     </section>
